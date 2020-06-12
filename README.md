@@ -3,7 +3,8 @@ librería para la conexión entre arduino y android studio por medio de bluetoot
 canal ->
 https://www.youtube.com/channel/UCVb1GvRWUeagfk6CdhlqLpg
 
-si se usa java implementar 
+si se usa java implementar ->  
+
 implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61"
 ya que esta desarrollada con kotlin
 
