@@ -47,6 +47,8 @@ class BluetoothJhr(
 
     private lateinit var listView:ListView
 
+    private var mensaje = ""
+
     private lateinit var segundaActivity:Class<*>
 
 
@@ -112,7 +114,6 @@ class BluetoothJhr(
      *Opcion B) se retorna los dispositivos emparejados
      * para asi puedan hacer un customListView
      */
-
     fun dispEmparejados():ArrayList<String>{
         val arrayList = ArrayList<String>()
         if(dispEmparejadosLista.size>0){
@@ -152,6 +153,7 @@ class BluetoothJhr(
         editor.putString("address", address)
         editor.apply()
         ctx.startActivity(intent)
+
 
     }
 
@@ -231,17 +233,28 @@ class BluetoothJhr(
      * provenientes de arduino
      */
     fun mRx() :String {
-        var mensaje = ""
         try{
             val memoriaTemporal = ByteArray(256)
             val bytes = meInStream!!.read(memoriaTemporal)
-            mensaje = String(memoriaTemporal,0,bytes)
+            mensaje += String(memoriaTemporal, 0, bytes)
         }catch (var4:IOException){
             mensaje = "error"
-            if (exitError)ctx2.startActivity(Intent(ctx2,activityAnterior1))
+            // si se quiere que se salga cuando exite error entonces se activa exitError
+            // sino se deja exitError en false
+            if (exitError){
+                ctx2.startActivity(Intent(ctx2,activityAnterior1))
+            }
         }
         return mensaje
     }
+
+    /**
+     * Resetea mensaje
+     */
+    fun mensajeReset(){
+        mensaje = ""
+    }
+
 
 
     /**
