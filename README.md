@@ -5,7 +5,7 @@ https://www.youtube.com/channel/UCVb1GvRWUeagfk6CdhlqLpg
 
 MainActivity y Main2Activity activity usadas en el video para kotlin
 
-
+La libreria es la que termina en formato aar.
 
 si se usa java implementar ->  
 
